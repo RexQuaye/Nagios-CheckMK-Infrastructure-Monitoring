@@ -114,10 +114,6 @@
 
 ---
 
-<br />
-<br />
-
----
 
 <br />
 <br />
@@ -159,7 +155,8 @@
 <p align="center">
 <b>Installing the EPEL repository on dev-app:</b>
 <br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="sudo yum install epel-release -y on dev-app reports the package is already installed" src="PASTE_URL_1" />
+<img width="944" height="230" alt="image" src="https://github.com/user-attachments/assets/fcdbc7d9-c189-4e6d-9b4c-31b220ba81db" />
+
 
 
 </p>
@@ -170,8 +167,8 @@
 
 <p align="center">
 <b>Installing NRPE on dev-app:</b>
-<br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="sudo yum install nrpe -y on dev-app reports the package is already installed" src="PASTE_URL_2" />
+<br/><img width="972" height="293" alt="image" src="https://github.com/user-attachments/assets/312c2ffa-8925-4061-9fca-cdf5b8d7864e" />
+
 
 
 </p>
@@ -183,7 +180,8 @@
 <p align="center">
 <b>Installing the Nagios plugins on dev-app:</b>
 <br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="sudo yum install of the nagios-plugins load, http, users, procs, disk, swap, nrpe and uptime packages on dev-app, all already installed" src="PASTE_URL_3" />
+<img width="954" height="430" alt="image" src="https://github.com/user-attachments/assets/f5cfb842-d65c-48a3-8a9c-ea4ff8acaed1" />
+
 
 
 </p>
@@ -195,7 +193,8 @@
 <p align="center">
 <b>Confirming the NRPE allowed_hosts setting on dev-app:</b>
 <br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="grep of allowed_hosts in /etc/nagios/nrpe.cfg on dev-app showing the Nagios server address is allowed" src="PASTE_URL_4" />
+<img width="964" height="223" alt="image" src="https://github.com/user-attachments/assets/874ae69d-75b3-48c3-8afb-17b2da5bdfad" />
+
 
 
 </p>
@@ -207,7 +206,7 @@
 <p align="center">
 <b>Verifying the NRPE service is running on dev-app:</b>
 <br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="systemctl status nrpe on dev-app showing the service enabled and active, listening on port 5666 and allowing connections from the Nagios server" src="PASTE_URL_5" />
+<img width="950" height="487" alt="image" src="https://github.com/user-attachments/assets/53f37ea1-212b-45b3-bb26-32e2ed875e0c" />
 
 
 </p>
@@ -219,7 +218,8 @@
 <p align="center">
 <b>Installing the EPEL repository on stage-web:</b>
 <br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="sudo yum install epel-release -y on stage-web reports the package is already installed" src="PASTE_URL_6" />
+<img width="898" height="394" alt="image" src="https://github.com/user-attachments/assets/ff27fd0f-2c1e-43f9-a785-9670b49bb5f1" />
+
 
 
 </p>
@@ -231,7 +231,8 @@
 <p align="center">
 <b>Installing NRPE on stage-web:</b>
 <br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="sudo yum install nrpe -y on stage-web reports the package is already installed" src="PASTE_URL_7" />
+<img width="960" height="384" alt="image" src="https://github.com/user-attachments/assets/7fa9d276-7e90-41ca-91dc-cf2cf5c5fbdb" />
+
 
 
 </p>
@@ -242,8 +243,8 @@
 
 <p align="center">
 <b>Installing the Nagios plugins on stage-web:</b>
-<br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="sudo yum install of the nagios-plugins load, http, users, procs, disk, swap, nrpe and uptime packages on stage-web, all already installed" src="PASTE_URL_8" />
+<br/><img width="955" height="437" alt="image" src="https://github.com/user-attachments/assets/4b62dd70-718d-4f53-9c0e-ecdc7006a611" />
+
 
 
 </p>
@@ -255,7 +256,8 @@
 <p align="center">
 <b>Editing nrpe.cfg to allow the Nagios server on stage-web:</b>
 <br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="Annotated: sudo vi /etc/nagios/nrpe.cfg on stage-web with the allowed_hosts line including the Nagios server address" src="PASTE_URL_9" />
+<img width="1568" height="455" alt="image" src="https://github.com/user-attachments/assets/8ed0789a-ac0f-4bbc-abb5-0db8694b941c" />
+
 
 
 </p>
@@ -266,8 +268,8 @@
 
 <p align="center">
 <b>Confirming the NRPE allowed_hosts setting on stage-web:</b>
-<br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="grep of allowed_hosts in /etc/nagios/nrpe.cfg on stage-web showing the Nagios server address is allowed" src="PASTE_URL_10" />
+<br/><img width="809" height="168" alt="image" src="https://github.com/user-attachments/assets/98e72f24-f05e-40e6-afbd-ddeb3a7216fb" />
+
 
 
 </p>
@@ -279,7 +281,8 @@
 <p align="center">
 <b>Verifying the NRPE service is running on stage-web:</b>
 <br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="systemctl status nrpe on stage-web showing the service enabled and active, listening on port 5666 and allowing connections from the Nagios server" src="PASTE_URL_11" />
+<img width="959" height="458" alt="image" src="https://github.com/user-attachments/assets/412f790a-4c2a-4974-bb03-725f2cf22f22" />
+
 
 
 </p>
@@ -291,7 +294,8 @@
 <p align="center">
 <b>Defining both hosts and their PING and SSH checks on the Nagios server:</b>
 <br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="rquaye-hosts.cfg on stage-nagios with host definitions for dev-app and stage-web and PING and SSH service definitions for both" src="PASTE_URL_12" />
+<img width="822" height="783" alt="image" src="https://github.com/user-attachments/assets/c4dfd3b9-ba0b-48cf-9a7b-3083ee18b3b3" />
+
 
 
 </p>
@@ -302,8 +306,7 @@
 
 <p align="center">
 <b>Validating the Nagios configuration with a pre-flight check:</b>
-<br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="nagios -v on nagios.cfg reports 48 hosts and 85 services checked with 0 warnings and 0 errors" src="PASTE_URL_13" />
+<br/><img width="847" height="751" alt="image" src="https://github.com/user-attachments/assets/a2731ff5-5fbf-4100-9323-f9608b694865" />
 
 
 </p>
@@ -314,8 +317,8 @@
 
 <p align="center">
 <b>Restarting Nagios:</b>
-<br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="sudo systemctl restart nagios followed by systemctl status nagios showing the service active and running; other users' host names redacted" src="PASTE_URL_14" />
+<br/><img width="939" height="534" alt="image" src="https://github.com/user-attachments/assets/9c1b2930-5c98-4a12-a233-a2cb7878e797" />
+
 
 
 </p>
@@ -326,8 +329,8 @@
 
 <p align="center">
 <b>dev-app appears in the Nagios host list as UP:</b>
-<br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="Nagios web interface host list showing dev-app as UP with a PING OK status; other users' hosts redacted" src="PASTE_URL_15" />
+<br/><img width="1562" height="120" alt="image" src="https://github.com/user-attachments/assets/04fe1be5-6fc4-4763-9d72-1cc8fab0c7e5" />
+
 
 
 </p>
@@ -338,8 +341,8 @@
 
 <p align="center">
 <b>stage-web appears in the Nagios host list awaiting its first check:</b>
-<br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="Nagios web interface host list showing stage-web as PENDING with its first host check scheduled; other users' hosts redacted" src="PASTE_URL_16" />
+<br/><img width="1568" height="241" alt="image" src="https://github.com/user-attachments/assets/23a92ace-5c4e-48e0-86c2-4b92e34d5a5e" />
+
 
 
 </p>
@@ -350,8 +353,8 @@
 
 <p align="center">
 <b>Nagios host status page:</b>
-<br/>
-<img width="PASTE_WIDTH" height="PASTE_HEIGHT" alt="Nagios Host Status Details page logged in as rquaye, with the dev-app host listed as UP; other users' hosts redacted" src="PASTE_URL_17" />
+<br/><img width="932" height="510" alt="image" src="https://github.com/user-attachments/assets/d64833b1-cea1-4a41-bb5f-10eef50397b2" />
+
 
 
 </p>
