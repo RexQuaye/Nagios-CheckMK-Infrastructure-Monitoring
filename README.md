@@ -358,10 +358,180 @@
 
 
 </p>
-
 <br />
 
 <b><u>Solution:</u></b>  I installed the EPEL repository, NRPE and the required Nagios plugins on both client servers, dev-app and stage-web, and edited each server's nrpe.cfg so the allowed_hosts setting permits connections from the Nagios server. I then confirmed that the NRPE service was enabled and running on both. On the Nagios server, I built a host configuration file from the provided yt-templates.cfg.bak template, defining both hosts with PING and SSH service checks. The template contained host blocks from another user, which caused a duplicate-definition error during validation, so I rebuilt the file with only the blocks needed for this ticket. I added the file's path to nagios.cfg, validated the configuration with the Nagios pre-flight check (0 warnings, 0 errors), and restarted the service. Both hosts then appeared in the Nagios web interface, with dev-app reporting UP.
+
+<br />
+<br />
+
+<p align="right"><a href="#top">⬆ Back to top</a></p>
+
+---
+
+
+
+<br />
+<br />
+
+<a name="ticket-60"></a>
+<h1>Ticket #60 — Add Both of Your Servers to CheckMK</h1>
+
+<h2>Languages and Utilities Used</h2>
+- <b>Bash</b>
+- <b>CheckMK</b>
+- <b>CheckMK agent</b>
+- <b>chrony (chronyc)</b>
+- <b>systemctl</b>
+- <b>firewall-cmd</b>
+
+<h2>Environments Used</h2>
+- <b>CentOS Stream 9</b>
+- <b>VMware vSphere (VM console)</b>
+- <b>CheckMK web interface</b>
+<br />
+<h2>Project walk-through:</h2>
+
+**Task:** Add the servers to CheckMK monitoring, following the CheckMK wiki instructions.
+
+**Objective:** Learn to implement CheckMK for detailed system health monitoring and analysis.
+
+**Requirements:**
+- dev-app
+- dev-performance
+- stage-web
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>Confirming the CheckMK agent socket is active on dev-app:</b>
+<br/>
+<img width="961" height="287" alt="image" src="https://github.com/user-attachments/assets/473bc34f-d3a8-448a-a4a5-2e8402abda10" />
+
+
+
+</p>
+
+<br />
+<br />
+<br />
+
+<p align="center">
+<b>dev-app: CheckMK reports NTP Time as critical:</b>
+<br/>
+<img width="1006" height="201" alt="image" src="https://github.com/user-attachments/assets/a2566079-3309-4ebf-bcf5-7d148e4cca51" />
+
+
+
+</p>
+
+<br />
+<br />
+<br />
+
+<p align="center">
+<b>dev-app: checking chrony and forcing a time sync:</b>
+<br/>
+<img width="1008" height="413" alt="image" src="https://github.com/user-attachments/assets/aa720194-13e8-4b6f-9d8c-f276f2753ae0" />
+
+
+
+</p>
+
+<br />
+<br />
+<br />
+
+<p align="center">
+<b>dev-app: NTP Time back to OK in CheckMK:</b>
+<br/>
+<img width="1011" height="330" alt="image" src="https://github.com/user-attachments/assets/a1e3493e-f8fa-48f2-bfe6-56fd17609435" />
+
+
+
+</p>
+
+<br />
+<br />
+<br />
+
+<p align="center">
+<b>dev-performance: CheckMK reports NTP Time as critical:</b>
+<br/>
+<img width="892" height="285" alt="image" src="https://github.com/user-attachments/assets/1e6cc820-ab02-441d-b8a9-568ddf34d769" />
+
+
+
+</p>
+
+<br />
+<br />
+<br />
+
+<p align="center">
+<b>dev-performance: checking chrony and forcing a time sync:</b>
+<br/>
+<img width="896" height="471" alt="image" src="https://github.com/user-attachments/assets/07cfb7c9-742f-4bde-ad7d-1ff0aad06731" />
+
+
+
+</p>
+
+<br />
+<br />
+<br />
+
+<p align="center">
+<b>dev-performance: NTP Time back to OK in CheckMK:</b>
+<br/>
+<img width="1070" height="252" alt="image" src="https://github.com/user-attachments/assets/fb4431ee-880d-4e50-ab86-9632f291dbde" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+
+<p align="center">
+<b>stage-web: CheckMK reports NTP Time as critical:</b>
+<br/>
+<img width="1138" height="258" alt="image" src="https://github.com/user-attachments/assets/f5fd11fd-c0b7-4039-aec7-41d8c15ce99a" />
+
+
+
+</p>
+
+<br />
+<br />
+<br />
+
+<p align="center">
+<b>stage-web: checking chrony and forcing a time sync:</b>
+<br/>
+<img width="1083" height="634" alt="image" src="https://github.com/user-attachments/assets/fd569b0f-2881-4179-8250-118158bf026e" />
+
+
+
+</p>
+
+<br />
+<br />
+<br />
+
+<p align="center">
+<b>stage-web: NTP Time back to OK in CheckMK:</b>
+<br/>
+<img width="1137" height="287" alt="image" src="https://github.com/user-attachments/assets/4de8de17-60e2-46c7-819a-42ca5e77265f" />
+
+
+
+</p>
+
+<br />
+
+<b><u>Solution:</u></b>  Following the CheckMK wiki, I installed the CheckMK agent on each of my three servers (dev-app, dev-performance and stage-web), opened port 6556 in each firewall, and confirmed the agent socket was active and listening. In the CheckMK web interface I added each host to the Dev folder, ran service discovery, accepted the discovered services and activated the pending changes. Two obstacles came up. CheckMK sometimes reported that a host already existed even though it had saved without its IP address, so I reopened the host, re-entered the IP and saved again. The wiki's verification step also did not match the current CheckMK interface, and the Monitor views showed no results for my hosts. I escalated this to the administrator, who confirmed the issue and updated the wiki with a working method, which I used to verify each host. That check showed a critical NTP Time alert on each server. chrony was running and synced to the IPA time source, but CheckMK was reporting a stale last-sync time, so I forced a sync with chronyc makestep. After a rescan, NTP Time returned to OK on all three servers.
 
 <br />
 <br />
