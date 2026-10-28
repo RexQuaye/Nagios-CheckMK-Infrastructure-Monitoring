@@ -707,3 +707,123 @@
 
 <br />
 <br />
+
+
+<a name="ticket-61"></a>
+<h1>Ticket #61 — Fix the Issue on Your Web Server</h1>
+
+<h2>Languages and Utilities Used</h2>
+- <b>Bash</b>
+- <b>ssh</b>
+- <b>systemctl</b>
+- <b>df</b>
+- <b>tail</b>
+- <b>curl</b>
+- <b>CheckMK</b>
+- <b>chrony (chronyc)</b>
+
+<h2>Environments Used</h2>
+- <b>CentOS Stream 9</b>
+- <b>Apache HTTP Server (httpd)</b>
+- <b>CheckMK web interface</b>
+<br />
+<h2>Project walk-through:</h2>
+
+**Task:** The team had been receiving a lot of emails about issues on stage-web.
+
+**Objective:** Learn to implement CheckMK for detailed system health monitoring and analysis.
+
+**Requirements:**
+- Use CheckMK to verify what is wrong and fix the issue
+- stage-web (stage-web-rexq3)
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>stage-web-rexq3 — Connecting from the bastion host and checking the Apache (httpd) service:</b>
+<br/>
+<img width="951" height="503" alt="image" src="https://github.com/user-attachments/assets/e2a6131f-fbea-4531-b10d-bba04c2b6323" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>stage-web-rexq3 — Checking disk space across all mounted filesystems:</b>
+<br/>
+<img width="952" height="286" alt="image" src="https://github.com/user-attachments/assets/837929d0-0e8a-4b52-af15-5895253c99f7" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>stage-web-rexq3 — Reviewing the most recent httpd error log entries:</b>
+<br/><img width="947" height="311" alt="image" src="https://github.com/user-attachments/assets/79e0e33c-3176-4032-a175-c0cdc24f89e9" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>stage-web-rexq3 — Testing the web server locally:</b>
+<br/>
+<img width="963" height="266" alt="image" src="https://github.com/user-attachments/assets/2f7ad187-6433-49fb-aed9-162f97761a48" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>CheckMK — Host &amp; service problems view returns no entries:</b>
+<br/>
+<img width="1147" height="412" alt="image" src="https://github.com/user-attachments/assets/4252542f-9701-465e-8761-e91efc1ee9e8" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>CheckMK — Confirming there are no pending changes to activate:</b>
+<br/>
+<img width="1143" height="285" alt="image" src="https://github.com/user-attachments/assets/263e833f-a3e8-4cd6-9efa-80145df60f10" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>CheckMK — Host &amp; service history filtered to stage-web-rexq3 also returns nothing:</b>
+<br/>
+<img width="1143" height="749" alt="image" src="https://github.com/user-attachments/assets/0770be61-53c4-47ca-b234-c8eff7bfa0e6" />
+
+</p>
+
+<br />
+<br />
+<br />
+
+<b><u>Solution:</u></b> I started with operating-system checks on stage-web-rexq3 and found nothing wrong: httpd was active and running, no filesystem was above 42% used, the httpd error log held only routine startup notices, and a local request returned HTTP 200 OK. Because the ticket required using CheckMK to find the problem, I then turned to its Monitor views. The Host &amp; service problems view and the Host &amp; service history view filtered to stage-web-rexq3 both came back empty, and there were no pending changes waiting to be activated. This was the same display issue I ran into in <a href="#ticket-60">Ticket #60</a>, where CheckMK's Monitor views returned no results, so I paused the ticket until the corrected verification method from that ticket was available (Setup &gt; Hosts &gt; Dev, search for the host). That let me read the service list for stage-web-rexq3 directly, where CheckMK showed a critical NTP Time alert. I resolved it by forcing a clock step with <code>chronyc makestep</code>, and NTP Time returned to OK (see Ticket #60).
+
+<br />
+<br />
+
+<p align="right"><a href="#top">⬆ Back to top</a></p>
+
+---
+
+<br />
+<br />
