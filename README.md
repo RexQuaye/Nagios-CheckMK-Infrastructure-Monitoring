@@ -384,6 +384,7 @@
 - <b>chrony (chronyc)</b>
 - <b>systemctl</b>
 - <b>firewall-cmd</b>
+- <b>wget / yum</b>
 
 <h2>Environments Used</h2>
 - <b>CentOS Stream 9</b>
@@ -397,18 +398,296 @@
 **Objective:** Learn to implement CheckMK for detailed system health monitoring and analysis.
 
 **Requirements:**
-- dev-app
-- dev-performance
-- stage-web
+- dev-app (dev-app-rexq)
+- dev-performance (dev-performance-rxnq2)
+- stage-web (stage-web-rexq3)
 
 <br />
 <br />
 <br />
 <p align="center">
-<b>Confirming the CheckMK agent socket is active on dev-app:</b>
+<b>dev-app-rexq — Downloading the CheckMK agent package from the CheckMK server:</b>
 <br/>
-<img width="961" height="287" alt="image" src="https://github.com/user-attachments/assets/473bc34f-d3a8-448a-a4a5-2e8402abda10" />
+<img width="930" height="243" alt="image" src="https://github.com/user-attachments/assets/ba424174-464c-4de7-96c6-e6c2168b740e" />
 
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — Installing the CheckMK agent:</b>
+<br/>
+<img width="681" height="731" alt="image" src="https://github.com/user-attachments/assets/32212c91-2dc0-4d8c-88f4-b7a1c72a2b39" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — Opening port 6556/tcp in the firewall and confirming the agent socket is active:</b>
+<br/>
+ <img width="946" height="352" alt="image" src="https://github.com/user-attachments/assets/2a232d02-f9f9-4fd8-b3a4-c22c8360a22e" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-performance-rxnq2 — Downloading the CheckMK agent package:</b>
+<br/>
+<img width="947" height="273" alt="image" src="https://github.com/user-attachments/assets/556aacfb-2e1c-40ba-ba4e-d967ff4845c1" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-performance-rxnq2 — Installing the CheckMK agent:</b>
+<br/>
+<img width="941" height="253" alt="image" src="https://github.com/user-attachments/assets/352edd0d-6770-4e0d-bd71-09ec846572d2" />
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-performance-rxnq2 — Opening port 6556/tcp in the firewall and confirming the agent socket is active:</b>
+<br/>
+<img width="942" height="339" alt="image" src="https://github.com/user-attachments/assets/9577fd99-8712-49f5-a40f-026004d1a505" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>stage-web-rexq3 — Installing wget, downloading and installing the CheckMK agent:</b>
+<br/>
+<img width="946" height="591" alt="image" src="https://github.com/user-attachments/assets/e3da16b3-bc6b-40bb-87a4-d312826ff817" />
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>stage-web-rexq3 — Opening port 6556/tcp in the firewall and confirming the agent socket is active:</b>
+<br/>
+<img width="951" height="442" alt="image" src="https://github.com/user-attachments/assets/0a0e358a-b369-4190-83c5-ec7dc8193e63" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — Entering the host name and IPv4 address:</b>
+<br/><img width="1242" height="560" alt="image" src="https://github.com/user-attachments/assets/ad09a76d-0a46-4a67-9937-ad276550e526" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — First save returned an "already exists" error:</b>
+<br/>
+<img width="1245" height="646" alt="image" src="https://github.com/user-attachments/assets/59c9df4c-4495-40af-9464-09c67554ac84" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — Host properties show the IPv4 address was not saved:</b>
+<br/>
+<img width="1015" height="789" alt="image" src="https://github.com/user-attachments/assets/14bdbc0e-8189-4f31-9ac3-65604b54ee27" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — Re-entering the IPv4 address in the host properties:</b>
+<br/>
+<img width="1024" height="776" alt="image" src="https://github.com/user-attachments/assets/016f6cf8-22f3-4e7d-a1fc-93975b51a7ef" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — Running service discovery (201 services found):</b>
+<br/><img width="651" height="588" alt="image" src="https://github.com/user-attachments/assets/71b72deb-c3e7-4ecb-a4d3-b391ad27bf35" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — Accepting all discovered services:</b>
+<br/>
+<img width="1016" height="930" alt="image" src="https://github.com/user-attachments/assets/956fdf98-5512-464b-ad6a-fe9a5cbb899a" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>CheckMK — Activating the pending changes completed successfully:</b>
+<br/>
+<img width="1013" height="337" alt="image" src="https://github.com/user-attachments/assets/b5141787-febc-4af0-a5bc-dc1f7a3aaccc" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>CheckMK — Wiki step failed: the Monitor &gt; All hosts view returns no results:</b>
+<br/>
+<img width="1026" height="457" alt="image" src="https://github.com/user-attachments/assets/49d13c0a-aae4-4f89-921f-2892def53491" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>Updated CheckMK wiki instructions: disable the row limitation and search for the host in Setup (other user's host name redacted):</b>
+<br/><img width="665" height="621" alt="image" src="https://github.com/user-attachments/assets/88521206-4e2a-42c6-8a01-4dad0ca1a217" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — Verifying the host in Setup &gt; Hosts &gt; Dev:</b>
+<br/>
+<img width="864" height="461" alt="image" src="https://github.com/user-attachments/assets/91cf0686-3a73-4677-9178-a541c88980bf" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-performance-rxnq2 — Adding the host with its IPv4 address:</b>
+<br/>
+<img width="1051" height="588" alt="image" src="https://github.com/user-attachments/assets/35e8e6b4-d8ec-4f21-95ec-85c660e99bd8" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>stage-web-rexq3 — Adding the host with its IPv4 address:</b>
+<br/><img width="1035" height="572" alt="image" src="https://github.com/user-attachments/assets/18dbac8b-812b-48f5-9136-b19442fc9da9" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — CheckMK reports a critical NTP Time alert:</b>
+<br/>
+<img width="929" height="184" alt="image" src="https://github.com/user-attachments/assets/ba4409ae-32fa-44ac-8404-7f7466f1047d" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — Checking chronyd, confirming the time source, and forcing a clock step:</b>
+<br/>
+<img width="989" height="397" alt="image" src="https://github.com/user-attachments/assets/b9a3d711-ab8c-41fe-a411-781b12a44c53" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — NTP Time returns to OK after the rescan:</b>
+<br/>
+<img width="986" height="311" alt="image" src="https://github.com/user-attachments/assets/be301247-830d-4aa1-9f9d-7ae1bfd48a81" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-performance-rxnq2 — CheckMK reports a critical NTP Time alert:</b>
+<br/>
+<img width="1105" height="278" alt="image" src="https://github.com/user-attachments/assets/8cd78421-608a-4992-8707-f7a58f825191" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-performance-rxnq2 — NTP Time returns to OK after the rescan:</b>
+<br/><img width="1070" height="252" alt="image" src="https://github.com/user-attachments/assets/295221d9-482f-4564-a772-b66b7eaa37bd" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>stage-web-rexq3 — CheckMK reports a critical NTP Time alert:</b>
+<br/>
+<img width="1138" height="258" alt="image" src="https://github.com/user-attachments/assets/a2d6b80a-4486-4631-8fd1-055d03e86123" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>stage-web-rexq3 — NTP Time returns to OK after the rescan:</b>
+<br/>
+<img width="1122" height="276" alt="image" src="https://github.com/user-attachments/assets/e7d20805-ac4d-4d15-aadd-13fb4f601c9c" />
 
 
 </p>
@@ -417,121 +696,7 @@
 <br />
 <br />
 
-<p align="center">
-<b>dev-app: CheckMK reports NTP Time as critical:</b>
-<br/>
-<img width="1006" height="201" alt="image" src="https://github.com/user-attachments/assets/a2566079-3309-4ebf-bcf5-7d148e4cca51" />
-
-
-
-</p>
-
-<br />
-<br />
-<br />
-
-<p align="center">
-<b>dev-app: checking chrony and forcing a time sync:</b>
-<br/>
-<img width="1008" height="413" alt="image" src="https://github.com/user-attachments/assets/aa720194-13e8-4b6f-9d8c-f276f2753ae0" />
-
-
-
-</p>
-
-<br />
-<br />
-<br />
-
-<p align="center">
-<b>dev-app: NTP Time back to OK in CheckMK:</b>
-<br/>
-<img width="1011" height="330" alt="image" src="https://github.com/user-attachments/assets/a1e3493e-f8fa-48f2-bfe6-56fd17609435" />
-
-
-
-</p>
-
-<br />
-<br />
-<br />
-
-<p align="center">
-<b>dev-performance: CheckMK reports NTP Time as critical:</b>
-<br/>
-<img width="892" height="285" alt="image" src="https://github.com/user-attachments/assets/1e6cc820-ab02-441d-b8a9-568ddf34d769" />
-
-
-
-</p>
-
-<br />
-<br />
-<br />
-
-<p align="center">
-<b>dev-performance: checking chrony and forcing a time sync:</b>
-<br/>
-<img width="896" height="471" alt="image" src="https://github.com/user-attachments/assets/07cfb7c9-742f-4bde-ad7d-1ff0aad06731" />
-
-
-
-</p>
-
-<br />
-<br />
-<br />
-
-<p align="center">
-<b>dev-performance: NTP Time back to OK in CheckMK:</b>
-<br/>
-<img width="1070" height="252" alt="image" src="https://github.com/user-attachments/assets/fb4431ee-880d-4e50-ab86-9632f291dbde" />
-
-
-</p>
-
-<br />
-<br />
-<br />
-
-<p align="center">
-<b>stage-web: CheckMK reports NTP Time as critical:</b>
-<br/>
-<img width="1138" height="258" alt="image" src="https://github.com/user-attachments/assets/f5fd11fd-c0b7-4039-aec7-41d8c15ce99a" />
-
-
-
-</p>
-
-<br />
-<br />
-<br />
-
-<p align="center">
-<b>stage-web: checking chrony and forcing a time sync:</b>
-<br/>
-<img width="1083" height="634" alt="image" src="https://github.com/user-attachments/assets/fd569b0f-2881-4179-8250-118158bf026e" />
-
-
-
-</p>
-
-<br />
-<br />
-<br />
-
-<p align="center">
-<b>stage-web: NTP Time back to OK in CheckMK:</b>
-<br/>
-<img width="1137" height="287" alt="image" src="https://github.com/user-attachments/assets/4de8de17-60e2-46c7-819a-42ca5e77265f" />
-
-
-
-</p>
-
-<br />
-
-<b><u>Solution:</u></b>  Following the CheckMK wiki, I installed the CheckMK agent on each of my three servers (dev-app, dev-performance and stage-web), opened port 6556 in each firewall, and confirmed the agent socket was active and listening. In the CheckMK web interface I added each host to the Dev folder, ran service discovery, accepted the discovered services and activated the pending changes. Two obstacles came up. CheckMK sometimes reported that a host already existed even though it had saved without its IP address, so I reopened the host, re-entered the IP and saved again. The wiki's verification step also did not match the current CheckMK interface, and the Monitor views showed no results for my hosts. I escalated this to the administrator, who confirmed the issue and updated the wiki with a working method, which I used to verify each host. That check showed a critical NTP Time alert on each server. chrony was running and synced to the IPA time source, but CheckMK was reporting a stale last-sync time, so I forced a sync with chronyc makestep. After a rescan, NTP Time returned to OK on all three servers.
+<b><u>Solution:</u></b> I installed the CheckMK agent on all three servers (dev-app-rexq, dev-performance-rxnq2 and stage-web-rexq3) by downloading the agent package from the CheckMK server with wget and installing it with yum, then opened port 6556/tcp in firewalld and confirmed the agent socket was active and listening. In the CheckMK web interface I added each server to the Dev folder with its IPv4 address, ran service discovery, accepted the discovered services (201 for dev-app-rexq) and activated the pending changes. Two obstacles came up. The first save of dev-app-rexq returned an "already exists" error and the host was left without its IP address, so I reopened the host properties, re-entered the address and saved again. The wiki's verification step (Monitor &gt; All hosts) did not match this version of CheckMK and returned no results, so I escalated it to the administrator, who updated the wiki to verify through Setup &gt; Hosts &gt; Dev instead (disable the row limitation, search for the host name). CheckMK then raised a critical NTP Time alert on each server. chronyd was running and synced to the IPA time source, but CheckMK reported a stale last-sync time, so I forced a clock step with <code>chronyc makestep</code> on each server. After a rescan, NTP Time returned to OK on all three.
 
 <br />
 <br />
