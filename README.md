@@ -827,3 +827,68 @@
 
 <br />
 <br />
+
+
+
+<a name="ticket-69"></a>
+<h1>Ticket #69 — CheckMK Monitoring and Host Reachability</h1>
+
+<h2>Languages and Utilities Used</h2>
+- <b>CheckMK</b>
+- <b>CheckMK agent</b>
+- <b>ping</b>
+
+<h2>Environments Used</h2>
+- <b>CheckMK web interface</b>
+- <b>CentOS Stream 9</b>
+<br />
+<h2>Project walk-through:</h2>
+
+**Task:** PASTE_TICKET_TASK
+
+**Objective:** PASTE_TICKET_OBJECTIVE
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-app-rexq — Reviewing the monitored services in CheckMK (no pending changes):</b>
+<br/>
+<img width="1913" height="390" alt="image" src="https://github.com/user-attachments/assets/025b3371-082a-4874-ab23-8ee43b31d673" />
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>dev-performance-rxnq2 — Reviewing the monitored services in CheckMK (no pending changes):</b>
+<br/>
+<img width="1568" height="377" alt="image" src="https://github.com/user-attachments/assets/2c3f5cb9-9889-477d-aa7c-8550518b5bc5" />
+
+</p>
+
+<br />
+<br />
+<br />
+<p align="center">
+<b>stage-web-rexq3 — Reviewing the monitored services in CheckMK (no pending changes):</b>
+<br/>
+<img width="1243" height="320" alt="image" src="https://github.com/user-attachments/assets/74cc99b9-8b8d-43d4-b799-ef28a911d97c" />
+
+
+</p>
+
+<br />
+<br />
+<br />
+
+<b><u>Solution:</u></b> I reviewed the CheckMK service list for each server through Setup &gt; Hosts &gt; Main &gt; Dev &gt; Properties of host &gt; Services of host. On dev-app-rexq, dev-performance-rxnq2 and stage-web-rexq3, the Check_MK Agent, CPU load, CPU utilization and Disk IO SUMMARY services all reported OK (and Filesystem / on stage-web-rexq3), and each page showed no pending changes, so nothing was waiting to be accepted or rescanned. The Check_MK Agent summary showed agent version 2.3.0p2 with TLS not activated on the monitored hosts. The configured check parameters do not raise an alert for that, so it is not blocking, but it would be worth enabling if encrypted agent traffic is required. I also confirmed with ping that the CheckMK server at 10.1.30.37 was reachable with 0% packet loss.
+
+<br />
+<br />
+
+<p align="right"><a href="#top">⬆ Back to top</a></p>
+
+<br />
+<br />
